@@ -83,13 +83,28 @@ public class Calculator extends JFrame implements ActionListener {
 	               operator = command;
 	         } else {
 	            double x = Double.parseDouble(tField.getText());
-	
+	            calculate(x);
 	            operator = command;
 	            startOfNumber = true;
 	            if (operator.equals("="))
 	               tArea.setText(tArea.getText() + result);
 	         }
 	      }
+	   }
+   
+   private void calculate(double n) {
+	      if (operator.equals("+"))
+	         result += n;
+	      else if (operator.equals("-"))
+	         result -= n;
+	      else if (operator.equals("x"))
+	         result *= n;
+	      else if (operator.equals("/"))
+	         result /= n;
+	      else if (operator.equals("=")) {
+	         result = n;
+	      } 
+	      tField.setText(" " + result);
 	   }
 
 public static void main(String[] args) {
